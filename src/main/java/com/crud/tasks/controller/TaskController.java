@@ -8,15 +8,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/tasks")
-
 public class TaskController {
 
     @GetMapping
     public List<TaskDto> getTasks(){
         return new ArrayList<>();
     }
-    @GetMapping
-    public TaskDto getTask(Long taskID){
+    @GetMapping(value = "{taskId}")
+    public TaskDto getTask(@PathVariable Long taskID){
         return new TaskDto(1L, "test title", "test_content");
     }
 
