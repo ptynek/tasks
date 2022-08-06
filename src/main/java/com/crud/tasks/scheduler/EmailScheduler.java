@@ -19,6 +19,7 @@ public class EmailScheduler {
     private final AdminConfig adminConfig;
 
     @Scheduled(cron = "0 0 10 * * *")
+//    @Scheduled(fixedDelay = 10000)
     public void sendInformationEmail(){
         long size = taskRepository.count();
         simpleEmailService.send(
@@ -31,7 +32,7 @@ public class EmailScheduler {
         );
     }
 
-    public String findOutWord(long size){
+    private String findOutWord(long size){
         if (size == 1) {
             return " task";
         }
