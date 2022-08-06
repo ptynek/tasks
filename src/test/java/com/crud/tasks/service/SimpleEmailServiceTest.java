@@ -38,5 +38,12 @@ class SimpleEmailServiceTest {
         simpleEmailService.send(mail);
 
         verify(javaMailSender, times(1)).send(mailMessage);
+        assertAll(
+                () -> assertEquals("test@test.com", mail.getMailTo()),
+                () -> assertEquals("", mail.getToCc()),
+                () -> assertEquals("Test", mail.getSubject()),
+                () -> assertEquals("Test message", mail.getMessage())
+        );
+
     }
 }
