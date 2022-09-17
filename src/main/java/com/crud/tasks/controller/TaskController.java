@@ -43,6 +43,7 @@ public class TaskController {
     public ResponseEntity<TaskDto> updateTask(@RequestBody TaskDto taskDto){
         Task task = taskMapper.mapToTask(taskDto);
         Task savedTask = service.saveTask(task);
+
         return ResponseEntity.ok(taskMapper.mapToTaskDto(savedTask));
     }
 
@@ -52,4 +53,6 @@ public class TaskController {
         service.saveTask(task);
         return ResponseEntity.ok().build();
     }
+
+    //CQRS
 }
