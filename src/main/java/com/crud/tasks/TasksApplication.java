@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @OpenAPIDefinition
 @SpringBootApplication
-//public class TasksApplication extends SpringBootServletInitializer {
 public class TasksApplication{
 
 	public static void main(String[] args) {
@@ -14,9 +13,6 @@ public class TasksApplication{
 		SpringApplication.run(TasksApplication.class, args);
 	}
 
-/*	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
-		return application.sources(TasksApplication.class);
-	}*/
+
 
 }
