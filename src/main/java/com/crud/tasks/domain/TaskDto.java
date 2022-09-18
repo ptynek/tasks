@@ -21,12 +21,4 @@ public class TaskDto {
         if (!title.equals(taskDto.title)) return false;
         return content.equals(taskDto.content);
     }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + title.hashCode();
-        result = 31 * result + content.hashCode();
-        return result;
-    }
 }

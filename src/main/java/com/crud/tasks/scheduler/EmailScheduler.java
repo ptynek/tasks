@@ -32,7 +32,7 @@ public class EmailScheduler {
         );
     }
 
-    private String findOutWord(long size){
+    public String findOutWord(long size){
         if (size == 1) {
             return " task";
         }
