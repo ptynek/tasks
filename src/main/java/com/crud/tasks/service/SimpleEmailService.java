@@ -35,18 +35,6 @@ public class SimpleEmailService {
         }
     }
 
-/*    private SimpleMailMessage createMailMessage(final Mail mail ){
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(mail.getMailTo());
-        Optional<String> isCc = Optional.ofNullable(mail.getToCc());
-        if (isCc.isPresent()) {
-            mailMessage.setCc(mail.getToCc());
-        }
-        mailMessage.setSubject(mail.getSubject());
-        mailMessage.setText(mail.getMessage());
-        return mailMessage;
-    }*/
-
     private MimeMessagePreparator createMimeMessage(final Mail mail) {
         return mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
