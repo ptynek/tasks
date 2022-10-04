@@ -28,10 +28,10 @@ public class MailCreatorService {
         context.setVariable("tasks_url", "http://localhost:8888/crud");
         context.setVariable("button", "Visit website");
         context.setVariable("admin_name", adminConfig.getAdminName());
-        context.setVariable("company_details", adminConfig.getCompanyName() + "<br>"
-                + adminConfig.getCompanyEmail() + "<br>" + adminConfig.getCompanyPhone());
-/*        context.setVariable("company_details", companyName + "<br>"
-                + companyEmail+ "<br>" + companyPhone);*/
+/*        context.setVariable("company_details", adminConfig.getCompanyName() + "<br>"
+                + adminConfig.getCompanyEmail() + "<br>" + adminConfig.getCompanyPhone());*/
+        context.setVariable("company_details", companyName + "<br>"
+                + companyEmail+ "<br>" + companyPhone);
         context.setVariable("good_bye", "Have a nice day!");
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
