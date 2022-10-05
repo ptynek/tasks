@@ -18,19 +18,17 @@ public class MailCreatorService {
     @Autowired
     private AdminConfig adminConfig;
 
-    private String companyName = "Company name";
-    private String companyEmail = "CompanyEmail@gmail.com";
-    private String companyPhone = "666666666";
-
     public String buildTrelloCardEmail(String message){
         Context context = new Context();
         context.setVariable("message", message);
         context.setVariable("tasks_url", "http://localhost:8888/crud");
         context.setVariable("button", "Visit website");
-        context.setVariable("admin_name", adminConfig.getAdminName());
+        context.setVariable("admin_config", adminConfig);
         context.setVariable("company_details", adminConfig.getCompanyName() + " | "
                 + adminConfig.getCompanyEmail()  + " | " + adminConfig.getCompanyPhone());
         context.setVariable("good_bye", "Have a nice day!");
+        context.setVariable("show_button", false);
+        context.setVariable("is_friend", true);
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
 }
