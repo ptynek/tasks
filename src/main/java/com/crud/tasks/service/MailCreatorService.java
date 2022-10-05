@@ -38,6 +38,7 @@ public class MailCreatorService {
         context.setVariable("good_bye", "Have a nice day!");
         context.setVariable("show_button", false);
         context.setVariable("is_friend", false);
+        context.setVariable("application_functionality", functionality);
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
 }
