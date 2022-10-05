@@ -1,6 +1,7 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.config.AdminConfig;
+import com.crud.tasks.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,10 @@ public class MailCreatorService {
 
     @Autowired
     private AdminConfig adminConfig;
+
+    @Autowired
+    private TaskRepository taskRepository;
+
 
     public String buildTrelloCardEmail(String message){
 
@@ -41,4 +46,5 @@ public class MailCreatorService {
         context.setVariable("application_functionality", functionality);
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
+
 }

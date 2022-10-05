@@ -2,6 +2,7 @@ package com.crud.tasks.service;
 
 import antlr.StringUtils;
 import com.crud.tasks.domain.Mail;
+import com.crud.tasks.scheduler.EmailScheduler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +53,5 @@ public class SimpleEmailService {
         mailMessage.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()));
         return mailMessage;
     }
+
 }

@@ -5,6 +5,7 @@ import com.crud.tasks.domain.Mail;
 import com.crud.tasks.repository.TaskRepository;
 import com.crud.tasks.service.SimpleEmailService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -22,14 +23,12 @@ public class EmailScheduler {
 //    @Scheduled(fixedDelay = 10000)
     public void sendInformationEmail(){
         long size = taskRepository.count();
-        simpleEmailService.send(
-                new Mail(
-                        adminConfig.getAdminMail(),
+        Mail mail = new Mail(adminConfig.getAdminMail(),
                         null,
                         SUBJECT,
                         "Currently in database you got: " + size + findOutWord(size)
-                )
-        );
+                );
+        simpleEmailService.send(mail);
     }
 
     public String findOutWord(long size){
